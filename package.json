@@ -1,5 +1,5 @@
 {
-  "name": "space-tourism",
+  "name": "ecommerce-product-page",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,8 @@
     "@fontsource/barlow-condensed": "^4.5.9",
     "@fontsource/bellefair": "^4.5.10",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vite-plugin-svgr": "^2.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
