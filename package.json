@@ -12,6 +12,7 @@
     "@fontsource/barlow": "^4.5.9",
     "@fontsource/barlow-condensed": "^4.5.9",
     "@fontsource/bellefair": "^4.5.10",
+    "@fontsource/kumbh-sans": "^4.5.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vite-plugin-svgr": "^2.4.0"
