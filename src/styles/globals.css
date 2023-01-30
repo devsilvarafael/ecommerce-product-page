@@ -7,6 +7,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Kumbh Sans", sans-serif;
+    font-size: 1rem;
 }
 
 body {
@@ -14,5 +15,5 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 2rem auto;
+    margin: 0 auto 1rem auto;
 }
