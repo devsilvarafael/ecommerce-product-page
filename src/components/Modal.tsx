@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 
 import { IoIosArrowBack as LeftArrowIcon, IoIosArrowForward as RightArrowIcon } from "react-icons/io";
 import { IoMdClose as CloseIcon } from "react-icons/io"
@@ -7,17 +7,24 @@ import { act } from "react-dom/test-utils";
 interface ModalProps {
     children: ReactNode;
     open: () => void;
-    actions: { currentItemIndex: number, setCurrentItemIndex: (index: number) => void, productImagesAmount: number }
+    actions: { currentItemIndex: number, setCurrentItemIndex: Dispatch<SetStateAction<number>>, productImagesAmount: number }
 }
 
 export const Modal = ({ children, open, actions }: ModalProps) => {
-    if (actions.currentItemIndex > actions.productImagesAmount - 1) {
-        actions.setCurrentItemIndex(0);
+    const modalItemsCheck = () => {
+        if (actions.currentItemIndex > actions.productImagesAmount - 1) {
+            actions.setCurrentItemIndex(0);
+        }
+
+        if (actions.currentItemIndex < 0) {
+            actions.setCurrentItemIndex(actions.productImagesAmount - 1)
+        }
     }
 
-    if (actions.currentItemIndex < 0) {
-        actions.setCurrentItemIndex(actions.productImagesAmount - 1)
-    }
+    useEffect(() => {
+        modalItemsCheck()
+        console.log("render")
+    }, [actions.currentItemIndex])
 
     const handleModalToNextItem = () => {
         actions.setCurrentItemIndex(actions.currentItemIndex + 1)

@@ -9,7 +9,7 @@ export const ProductSubImages = ({ images, selected, changeImage, full }: Produc
     return (
         <div className={`flex flex-row justify-between mt-10 ${full ? "px-0": "px-12"}`}>
             {images.map((thumbnail, index) => (
-                <figure className={`${selected === index && "outline outline-2 outline-orange rounded-xl"}`}>
+                <figure className={`${selected === index && "outline outline-2 outline-orange rounded-xl"}`} key={index}>
                     <img
                         src={thumbnail}
                         alt={"product image"}
