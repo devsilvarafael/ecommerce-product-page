@@ -1,6 +1,11 @@
-import {ProductInfo} from "./ProductInfo";
+// React imports
+import { useState } from "react";
 
-import {useState} from "react";
+// Components imports
+import { Modal } from "./Modal";
+import { ContainerWrapper } from "./ContainerWrapper";
+import { ProductMainImage } from "./ProductMainImage";
+import { ProductSubImages } from "./ProductSubImages";
 
 const productImageThumbnail = [
     "/src/assets/images/image-product-1-thumbnail.jpg",
@@ -15,29 +20,41 @@ const productImageExtended = [
     "/src/assets/images/image-product-3.jpg",
     "/src/assets/images/image-product-4.jpg"
 ]
+
 export const ProductPresentation = () => {
-    const [mainProductImage, setMainProductImage] = useState(0);
+    const [currentItemIndex, setCurrentItemIndex] = useState(0)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const productImagesAmount = productImageExtended.length;
+
+
     const handleChangeMainImage = (index: number) => {
-        setMainProductImage(index);
+        setCurrentItemIndex(index);
+    }
+    const handleModalIsOpen = () => {
+        setModalIsOpen(!modalIsOpen);
     }
 
-
     return (
-            <div className={"max-w-xl"}>
-                <img src={productImageExtended[mainProductImage]} className={"rounded-2xl"} />
+        <ContainerWrapper>
+            <ProductMainImage url={productImageExtended[currentItemIndex]} openOnScreen={handleModalIsOpen}/>
 
-                <div className={"flex flex-row px-7 justify-between mt-10"}>
-                    {productImageThumbnail.map((thumbnail, index) => (
-                        <figure className={`${mainProductImage === index && "outline outline-2 outline-orange rounded-xl"}`}>
-                            <img
-                                src={thumbnail}
-                                alt={"product image"}
-                                className={`rounded-xl ${mainProductImage === index && ""} h-24`}
-                                onClick={() => handleChangeMainImage(index)}
-                            />
-                        </figure>
-                    ))}
-                </div>
-            </div>
+            <ProductSubImages
+                images={productImageThumbnail}
+                selected={currentItemIndex}
+                changeImage={handleChangeMainImage}
+                full
+            />
+
+            {modalIsOpen &&
+                <Modal open={handleModalIsOpen} actions={{ currentItemIndex, setCurrentItemIndex, productImagesAmount }}>
+                    <ProductMainImage url={productImageExtended[currentItemIndex]}/>
+                    <ProductSubImages
+                        images={productImageThumbnail}
+                        selected={currentItemIndex}
+                        changeImage={handleChangeMainImage}
+                    />
+                </Modal>
+            }
+        </ContainerWrapper>
     )
 }
