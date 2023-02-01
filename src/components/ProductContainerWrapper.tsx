@@ -4,7 +4,7 @@ type ContainerWrapperProps = {
     children: ReactNode;
 }
 
-export const ContainerWrapper = ({ children }: ContainerWrapperProps) => {
+export const ProductContainerWrapper = ({ children }: ContainerWrapperProps) => {
     return (
         <div className={"max-w-md"}>
             {children}

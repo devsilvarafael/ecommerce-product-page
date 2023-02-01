@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // Components imports
 import { Modal } from "./Modal";
-import { ContainerWrapper } from "./ContainerWrapper";
+import { ProductContainerWrapper } from "./ProductContainerWrapper";
 import { ProductMainImage } from "./ProductMainImage";
 import { ProductSubImages } from "./ProductSubImages";
 
@@ -35,7 +35,7 @@ export const ProductPresentation = () => {
     }
 
     return (
-        <ContainerWrapper>
+        <ProductContainerWrapper>
             <ProductMainImage url={productImageExtended[currentItemIndex]} openOnScreen={handleModalIsOpen}/>
 
             <ProductSubImages
@@ -55,6 +55,6 @@ export const ProductPresentation = () => {
                     />
                 </Modal>
             }
-        </ContainerWrapper>
+        </ProductContainerWrapper>
     )
 }
