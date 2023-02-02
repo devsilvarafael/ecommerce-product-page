@@ -1,4 +1,4 @@
-import avatar from "../assets/images/image-avatar.png"
+import avatar from "../../public/images/image-avatar.png"
 
 export const Avatar = () => {
     return (

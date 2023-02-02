@@ -1,5 +1,5 @@
-import { ReactComponent as Logo } from "../assets/images/logo.svg";
-import { ReactComponent as CartIcon } from "../assets/images/icon-cart.svg";
+import { ReactComponent as Logo } from "../../public/images/logo.svg";
+import { ReactComponent as CartIcon } from "../../public/images/icon-cart.svg";
 
 import { TfiMenu as HamburgerMenuIcon } from "react-icons/tfi";
 
