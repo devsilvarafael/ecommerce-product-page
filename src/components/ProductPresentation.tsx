@@ -16,20 +16,7 @@ import { Carousel } from "./Carousel";
 // React-icons imports
 import { BsCart3 } from "react-icons/bs";
 import useWindowSize from "../hooks/useWindowSize";
-
-const productImageThumbnail = [
-    "/src/assets/images/image-product-1-thumbnail.jpg",
-    "/src/assets/images/image-product-2-thumbnail.jpg",
-    "/src/assets/images/image-product-3-thumbnail.jpg",
-    "/src/assets/images/image-product-4-thumbnail.jpg"
-]
-
-const productImageExtended = [
-    "/src/assets/images/image-product-1.jpg",
-    "/src/assets/images/image-product-2.jpg",
-    "/src/assets/images/image-product-3.jpg",
-    "/src/assets/images/image-product-4.jpg"
-]
+import { productImageExtended, productImageThumbnail } from "../data/imagesURL";
 
 export const ProductPresentation = () => {
     // States
