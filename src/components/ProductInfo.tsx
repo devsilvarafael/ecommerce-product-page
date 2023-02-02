@@ -1,18 +1,18 @@
-export const ProductInfo = () => {
+import { Fragment } from "react";
+
+type ProductInfoProps = {
+    title: string;
+    description: string
+}
+
+export const ProductInfo = ({ title, description }: ProductInfoProps) => {
     return (
-        <div>
+        <Fragment>
             <p className={"uppercase text-sm text-orange font-extrabold tracking-widest"}>Sneaker Company</p>
-            <h2 className={"text-5xl font-bold mt-4 mb-12 max-w-xl"}>Fall Limited Edition Sneakers</h2>
+            <h2 className={"text-3xl md:text-5xl font-bold mt-4 mb-4 md:mb-12 max-w-xl"}>{title}</h2>
             <p className={"mb-8 text-dark-grayish-blue max-w-lg"}>
-                These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer
-                sole, they’ll withstand everything the weather can offer.
+                {description}
             </p>
-            <p className={"text-3xl font-semibold flex mb-2"}>
-                $125.00 <span className={"ml-6 text-lg font-semibold bg-pale-orange text-orange pt-1 px-1.5 rounded-md"}>50%</span>
-            </p>
-            <p className={"text-grayish-blue font-bold line-through"}>
-                $250.00
-            </p>
-        </div>
+        </Fragment>
     )
 }
