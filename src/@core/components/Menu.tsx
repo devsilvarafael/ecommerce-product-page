@@ -1,13 +1,17 @@
-import { ReactComponent as Logo } from "../../../public/images/logo.svg";
-import { ReactComponent as CartIcon } from "../../../public/images/icon-cart.svg";
-
-import { TfiMenu as HamburgerMenuIcon } from "react-icons/tfi";
+// React imports
+import { Fragment, useState } from "react";
 
 // Components imports
 import { Avatar } from "@core/components/Avatar";
 
 // Hooks imports
 import useWindowSize from "@core/hooks/useWindowSize";
+
+// Icons imports
+import { ReactComponent as Logo } from "../../../public/images/logo.svg";
+import { ReactComponent as CartIcon } from "../../../public/images/icon-cart.svg";
+import { MdMenu as HamburgerMenuIcon } from "react-icons/md";
+import { MdClose as CloseIcon } from "react-icons/md"
 
 const options = [
     { id: 0, label: "Collections" },
@@ -19,31 +23,67 @@ const options = [
 
 
 export const Menu = () => {
-    const { width: screenWidth } = useWindowSize();
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+    const { width: screenWidth, height } = useWindowSize();
+
+    const handleMenuIsOpen = () => {
+        setMenuIsOpen(!menuIsOpen)
+    }
 
     return (
-        <header className={"w-full bg-white z-40 flex justify-between p-4 md:p-0 md:pb-12 md:pt-8 mb-3 md:border-b-2"}>
+        <header
+            className={"w-full h-full bg-white z-40 flex items-center justify-between p-4 md:p-0 md:pb-12 md:pt-8 mb-3 md:border-b-2"}>
             <div className={"flex flex-row items-center"}>
-                {screenWidth > 600 ? null : <HamburgerMenuIcon className={"w-5 h-5 mr-4 text-dark-grayish-blue"}/>}
-
-                <Logo />
-
-                {screenWidth > 600 && (
-                    <menu className={"flex flex-row gap-9 left-[22%] top-[5%] absolute"}>
+                {screenWidth > 600 ?
+                    <menu
+                        className={"absolute z-40 flex flex-col gap-7 left-5 top-14 mt-8 md:flex-row md:gap-9 md:left-[22%] md:top-12 md:mt-0 md:ml-6"}>
                         {options.map(option => (
                             <li
                                 key={option.id}
-                                className={"cursor-pointer text-dark-grayish-blue hover:border-orange hover:border-b-4 h-[5.5rem]"}
+                                className={"cursor-pointer md:text-md md:font-normal md:text-dark-grayish-blue md:hover:border-orange md:hover:border-b-4 md:h-[5.5rem]"}
                             >
                                 {option.label}
                             </li>
                         ))}
                     </menu>
-                )}
+                    : menuIsOpen ?
+                        <div className={"fixed w-screen h-screen bg-opacity-80 top-0 bg-black left-0 mb-px z-20"}>
+                            <div className={`fixed h-full left-0 top-0 w-2/3 bg-white z-50`}>
+                                <CloseIcon
+                                    className={"relative top-4 left-4 z-20 text-center text-dark-grayish-blue"}
+                                    size={25}
+                                    title={"Close menu"}
+                                    onClick={handleMenuIsOpen}
+                                />
+                                <menu
+                                    className={"flex flex-col gap-7 left-5 md:left-[22%] top-14 absolute z-40 mt-8"}>
+                                    {options.map(option => (
+                                        <li
+                                            key={option.id}
+                                            className={"cursor-pointer text-lg font-semibold text-dark-blue"}
+                                        >
+                                            {option.label}
+                                        </li>
+                                    ))}
+                                </menu>
+                            </div>
+                        </div>
+
+                        :
+                        <HamburgerMenuIcon
+                            className={"relative mr-4 text-dark-grayish-blue"}
+                            size={25}
+                            title={"Open menu"}
+                            onClick={handleMenuIsOpen}
+                        />
+                }
+
+                <Logo/>
             </div>
             <div className={"flex items-center w-full justify-end"}>
-                <CartIcon className={"mr-6"} />
-                <Avatar />
+                <CartIcon className={"mr-6"}/>
+                <Avatar/>
             </div>
         </header>
     )
