@@ -1,5 +1,5 @@
 import {Menu} from "./@core/components/Menu";
-import { ProductPresentation } from "./@core/components/ProductPresentation";
+import { ProductPresentation } from "./views/Product/ProductPresentation";
 
 function App() {
     return (

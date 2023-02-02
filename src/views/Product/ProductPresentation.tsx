@@ -10,14 +10,14 @@ import {
     ProductMainImage,
     ProductPrice,
     ProductSubImages
-} from "./index"
+} from "@core/components"
 
 // Another imports
-import { productImageExtended, productImageThumbnail } from "../data/imagesURL";
+import { productImageExtended, productImageThumbnail } from "@core/data/imagesURL";
 
 // React-icons imports
 import { BsCart3 } from "react-icons/bs";
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowSize from "@core/hooks/useWindowSize";
 
 
 

@@ -7,7 +7,7 @@ export * from "../components/BuyProductWrapper";
 export * from "../components/Carousel";
 export * from "../components/Modal";
 export * from "../components/ProductContainerWrapper";
-export * from "../components/ProductPresentation";
+export * from "../../views/Product/ProductPresentation";
 export * from "../components/ProductPrice";
 export * from "../components/ProductSubImages";
 export * from "../components/ProductMainImage";
