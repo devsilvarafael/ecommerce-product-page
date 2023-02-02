@@ -1,6 +1,8 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 import { IoMdClose as CloseIcon } from "react-icons/io"
-import { Carousel } from "./Carousel";
+
+// Components imports
+import { Carousel } from "@core/components/Carousel";
 
 interface ModalProps {
     children: ReactNode;

@@ -3,8 +3,11 @@ import { ReactComponent as CartIcon } from "../../../public/images/icon-cart.svg
 
 import { TfiMenu as HamburgerMenuIcon } from "react-icons/tfi";
 
-import { Avatar } from "./Avatar";
-import useWindowSize from "../hooks/useWindowSize";
+// Components imports
+import { Avatar } from "@core/components/Avatar";
+
+// Hooks imports
+import useWindowSize from "@core/hooks/useWindowSize";
 
 const options = [
     { id: 0, label: "Collections" },

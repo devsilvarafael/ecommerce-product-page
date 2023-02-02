@@ -2,21 +2,24 @@
 import { useState } from "react";
 
 // Components imports
-import { Modal } from "./Modal";
-import { ProductContainerWrapper } from "./ProductContainerWrapper";
-import { ProductMainImage } from "./ProductMainImage";
-import { ProductSubImages } from "./ProductSubImages";
-import { ProductInfo } from "./ProductInfo";
-import { ProductPrice } from "./ProductPrice";
-import { BuyProductWrapper } from "./BuyProductWrapper";
-import { InputAmount } from "./InputAmount";
-import { Button } from "./Button";
-import { Carousel } from "./Carousel";
+import {
+    Button, BuyProductWrapper,
+    Carousel, InputAmount, Modal,
+    ProductContainerWrapper,
+    ProductInfo,
+    ProductMainImage,
+    ProductPrice,
+    ProductSubImages
+} from "./index"
+
+// Another imports
+import { productImageExtended, productImageThumbnail } from "../data/imagesURL";
 
 // React-icons imports
 import { BsCart3 } from "react-icons/bs";
 import useWindowSize from "../hooks/useWindowSize";
-import { productImageExtended, productImageThumbnail } from "../data/imagesURL";
+
+
 
 export const ProductPresentation = () => {
     // States
