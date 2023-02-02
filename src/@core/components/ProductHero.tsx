@@ -1,5 +1,4 @@
 import useWindowSize from "@core/hooks/useWindowSize";
-import { MouseEventHandler } from "react";
 
 type ProductMainImageProps = {
     url: string;

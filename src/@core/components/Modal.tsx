@@ -15,7 +15,7 @@ export const Modal = ({ children, open, actions }: ModalProps) => {
         <div className={"absolute w-screen h-screen bg-opacity-80 top-0 bg-black left-0"}>
             <div className={"flex flex-col justify-center items-center w-full h-full"}>
                 <div className={"max-w-xl"}>
-                    <Carousel position={{ leftArrow: "left-[32.6%] top-[41%]", rightArrow: "right-[32.6%] top-[41%]"}} actions={actions} />
+                    <Carousel position={{ leftArrow: "left-[34.5%] top-[42%]", rightArrow: "right-[34.5%] top-[42%]"}} actions={actions} />
                     <CloseIcon className={"h-8 w-8 text-white ml-auto mb-7 cursor-pointer"} onClick={open}/>
                     {children}
                 </div>
