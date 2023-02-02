@@ -7,13 +7,13 @@ type ProductSubImageProps = {
 
 export const ProductSubImages = ({ images, selected, changeImage, full }: ProductSubImageProps) => {
     return (
-        <div className={`flex flex-row justify-between mt-10 ${full ? "px-0": "px-12"}`}>
+        <div className={`flex flex-row justify-between mt-10 ${full ? "px-0": "px-8"}`}>
             {images.map((thumbnail, index) => (
                 <figure className={`${selected === index && "outline outline-2 outline-orange rounded-xl"}`} key={index}>
                     <img
                         src={thumbnail}
                         alt={"product image"}
-                        className={`rounded-xl ${selected === index && ""} w-24  cursor-pointer`}
+                        className={`rounded-xl ${selected === index && ""} w-24 cursor-pointer`}
                         onClick={() => changeImage(index)}
                     />
                 </figure>
