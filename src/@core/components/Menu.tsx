@@ -51,17 +51,17 @@ export const Menu = () => {
                         <div className={"fixed w-screen h-screen bg-opacity-80 top-0 bg-black left-0 mb-px z-20"}>
                             <div className={`fixed h-full left-0 top-0 w-2/3 bg-white z-50`}>
                                 <CloseIcon
-                                    className={"relative top-4 left-4 z-20 text-center text-dark-grayish-blue"}
+                                    className={"relative cursor-pointer top-4 left-4 z-20 text-center text-dark-grayish-blue hover:text-orange"}
                                     size={25}
                                     title={"Close menu"}
                                     onClick={handleMenuIsOpen}
                                 />
                                 <menu
-                                    className={"flex flex-col gap-7 left-5 md:left-[22%] top-14 absolute z-40 mt-8"}>
+                                    className={"flex flex-col gap-7 left-5 md:left-[22%] top-14 absolute z-40 mt-8"} role={"menu items"}>
                                     {options.map(option => (
                                         <li
                                             key={option.id}
-                                            className={"cursor-pointer text-lg font-semibold text-dark-blue"}
+                                            className={"cursor-pointer text-lg font-semibold text-dark-blue hover:text-orange"}
                                         >
                                             {option.label}
                                         </li>
@@ -72,7 +72,7 @@ export const Menu = () => {
 
                         :
                         <HamburgerMenuIcon
-                            className={"relative mr-4 text-dark-grayish-blue"}
+                            className={"relative mr-4 text-dark-grayish-blue hover:text-orange cursor-pointer"}
                             size={25}
                             title={"Open menu"}
                             onClick={handleMenuIsOpen}
