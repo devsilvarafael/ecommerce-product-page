@@ -40,7 +40,7 @@ export const ProductPresentation = () => {
 
     return (
         <ProductContainerWrapper>
-            <div className={"md:max-w-md mb-4"}>
+            <div className={"md:max-w-lg mb-4"}>
                 <ProductHero
                     url={productImageExtended[currentItemIndex]}
                     openOnScreen={handleModalIsOpen}

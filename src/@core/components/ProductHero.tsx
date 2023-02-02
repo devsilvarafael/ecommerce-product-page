@@ -14,7 +14,7 @@ export const ProductHero = ({ url, openOnScreen, width }: ProductMainImageProps)
             <img
                 src={url}
                 alt={"Product Image"}
-                className={`${width === "lg" ? "max-w-xl" : "md:max-w-md"} md:rounded-2xl md:cursor-pointer hover:shadow-md hover:transition`}
+                className={`${width === "lg" ? "max-w-2xl" : "md:max-w-lg"} md:rounded-2xl md:cursor-pointer hover:shadow-md hover:transition`}
                 onClick={screenWidth > 400 ? openOnScreen : undefined}
             />
         </div>
