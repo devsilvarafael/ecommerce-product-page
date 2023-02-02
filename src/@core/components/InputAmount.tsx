@@ -42,7 +42,7 @@ export const InputAmount = () => {
     const [state, dispatch] = useReducer(amountReducer, { amount: 0 })
 
     return (
-        <div className={"flex flex-row bg-light-grayish-blue h-14 items-center rounded-xl w-full md:w-3/5 justify-around"}>
+        <div className={"flex flex-row bg-light-grayish-blue h-14 items-center rounded-xl w-full md:w-3/5 justify-around shadow-md"}>
             <MinusIcon className={"text-orange cursor-pointer"} onClick={() => dispatch({ type: InputTypes.DECREASE })}/>
 
             <input
