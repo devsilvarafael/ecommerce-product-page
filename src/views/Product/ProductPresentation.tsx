@@ -7,9 +7,9 @@ import {
     Carousel, InputAmount, Modal,
     ProductContainerWrapper,
     ProductInfo,
-    ProductMainImage,
+    ProductHero,
     ProductPrice,
-    ProductSubImages
+    ProductThumbnails
 } from "@core/components"
 
 // Another imports
@@ -41,14 +41,14 @@ export const ProductPresentation = () => {
     return (
         <ProductContainerWrapper>
             <div className={"md:max-w-md mb-4"}>
-                <ProductMainImage
+                <ProductHero
                     url={productImageExtended[currentItemIndex]}
                     openOnScreen={handleModalIsOpen}
                     width={"md"}
                 />
 
                 {width > 375 ? (
-                    <ProductSubImages
+                    <ProductThumbnails
                         images={productImageThumbnail}
                         selected={currentItemIndex}
                         changeImage={handleChangeMainImage}
@@ -84,8 +84,8 @@ export const ProductPresentation = () => {
 
             {modalIsOpen &&
                 <Modal open={handleModalIsOpen} actions={{ currentItemIndex, setCurrentItemIndex, productImagesAmount }}>
-                    <ProductMainImage url={productImageExtended[currentItemIndex]} width={"lg"}/>
-                    <ProductSubImages
+                    <ProductHero url={productImageExtended[currentItemIndex]} width={"lg"}/>
+                    <ProductThumbnails
                         images={productImageThumbnail}
                         selected={currentItemIndex}
                         changeImage={handleChangeMainImage}

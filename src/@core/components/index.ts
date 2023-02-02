@@ -9,5 +9,5 @@ export * from "../components/Modal";
 export * from "../components/ProductContainerWrapper";
 export * from "../../views/Product/ProductPresentation";
 export * from "../components/ProductPrice";
-export * from "../components/ProductSubImages";
-export * from "../components/ProductMainImage";
+export * from "./ProductThumbnails";
+export * from "./ProductHero";

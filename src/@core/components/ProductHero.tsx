@@ -6,7 +6,7 @@ type ProductMainImageProps = {
     width: "lg" | "md"
 }
 
-export const ProductMainImage = ({ url, openOnScreen, width }: ProductMainImageProps) => {
+export const ProductHero = ({ url, openOnScreen, width }: ProductMainImageProps) => {
     const { width: screenWidth } = useWindowSize()
 
     return (
@@ -14,7 +14,7 @@ export const ProductMainImage = ({ url, openOnScreen, width }: ProductMainImageP
             <img
                 src={url}
                 alt={"Product Image"}
-                className={`${width === "lg" ? "max-w-xl" : "max-w-md"} md:rounded-2xl md:cursor-pointer`}
+                className={`${width === "lg" ? "max-w-xl" : "max-w-md"} md:rounded-2xl md:cursor-pointer hover:shadow-md hover:transition`}
                 onClick={screenWidth > 400 ? openOnScreen : null}
             />
         </div>
