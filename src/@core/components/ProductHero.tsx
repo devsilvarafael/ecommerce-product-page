@@ -1,8 +1,9 @@
 import useWindowSize from "@core/hooks/useWindowSize";
+import { MouseEventHandler } from "react";
 
 type ProductMainImageProps = {
     url: string;
-    openOnScreen?: any;
+    openOnScreen?: () => void;
     width: "lg" | "md"
 }
 
@@ -15,7 +16,7 @@ export const ProductHero = ({ url, openOnScreen, width }: ProductMainImageProps)
                 src={url}
                 alt={"Product Image"}
                 className={`${width === "lg" ? "max-w-xl" : "md:max-w-md"} md:rounded-2xl md:cursor-pointer hover:shadow-md hover:transition`}
-                onClick={screenWidth > 400 ? openOnScreen : null}
+                onClick={screenWidth > 400 ? openOnScreen : undefined}
             />
         </div>
     )

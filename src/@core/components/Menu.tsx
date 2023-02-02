@@ -37,7 +37,7 @@ export const Menu = () => {
             <div className={"flex flex-row items-center"}>
                 {screenWidth > 600 ?
                     <menu
-                        className={"absolute z-40 flex flex-col gap-7 left-5 top-14 mt-8 md:flex-row md:gap-9 md:left-[22%] md:top-12 md:mt-0 md:ml-6"}>
+                        className={"absolute flex flex-col gap-7 left-5 top-14 mt-8 md:flex-row md:gap-9 md:left-[22%] md:top-12 md:mt-0 md:ml-6"}>
                         {options.map(option => (
                             <li
                                 key={option.id}
