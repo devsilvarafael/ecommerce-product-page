@@ -7,7 +7,7 @@ export const Cart = () => {
     const { cartItems } = useCart()
 
     return (
-        <div className={"absolute top-20 md:top-28 w-[95%] left-2 md:left-2/3 md:w-96 rounded-xl shadow-2xl bg-white z-50"}>
+        <div className={"absolute top-20 md:top-28 w-[95%] left-2 md:left-2/3 md:w-96 rounded-xl shadow-2xl bg-white z-10"}>
             <div className={"p-6 border-b-2"}>
                 <p className={"text-very-dark-blue font-bold text-lg"}>Cart</p>
             </div>
