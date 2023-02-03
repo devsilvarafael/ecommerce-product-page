@@ -12,7 +12,7 @@ interface ModalProps {
 
 export const Modal = ({ children, open, actions }: ModalProps) => {
     return (
-        <div className={"absolute w-screen h-screen bg-opacity-80 top-0 bg-black left-0"}>
+        <div className={"absolute w-screen h-screen bg-opacity-80 top-0 bg-black left-0 z-40"}>
             <div className={"w-full h-full flex justify-center items-center"}>
                 <div className={"max-w-2xl"}>
                     <Carousel position={{ leftArrow: "left-[32.0%] top-[43%]", rightArrow: "right-[32.0%] top-[43%]"}} actions={actions} />

@@ -35,7 +35,7 @@ export const Menu = () => {
 
     return (
         <header
-            className={"w-full h-full bg-white z-40 flex items-center justify-between p-4 md:p-0 md:pb-12 md:pt-8 mb-3 md:border-b-2"}>
+            className={"fixed md:relative w-full bg-white z-40 flex items-center justify-between p-4 md:p-0 md:pb-12 md:pt-8  md:border-b-2"}>
             <div className={"flex flex-row items-center"}>
                 {screenWidth > 600 ?
                     <menu
@@ -84,7 +84,7 @@ export const Menu = () => {
                 <Logo/>
             </div>
             <div className={"flex items-center w-full justify-end"}>
-                <CartIcon className={"mr-6"} onClick={() => setCartIsOpen(!cartIsOpen)}/>
+                <CartIcon className={"mr-6 cursor-pointer"} onClick={() => setCartIsOpen(!cartIsOpen)}/>
                 {cartIsOpen && (
                     <CartContainer />
                 )}

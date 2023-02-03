@@ -28,7 +28,7 @@ export const Carousel = ({ position, actions }: ArrowActions) => {
         <Fragment>
             <span
                 className={`
-                    absolute w-10 h-10 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center cursor-pointer inset-y-60
+                    absolute w-10 h-10 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center cursor-pointer inset-y-52
                     hover:text-orange ${position.leftArrow}
                 `}
                 onClick={handleModalToPreviousItem}
@@ -38,7 +38,7 @@ export const Carousel = ({ position, actions }: ArrowActions) => {
 
             <span
                 className={`
-                    absolute w-10 h-10 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center cursor-pointer inset-y-60
+                    absolute w-10 h-10 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center cursor-pointer inset-y-52
                     hover:text-orange ${position.rightArrow}
                 `}
                 onClick={handleModalToNextItem}
