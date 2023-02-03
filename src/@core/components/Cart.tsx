@@ -3,7 +3,7 @@ import { Button } from "@core/components/Button";
 
 import useCart from "@core/hooks/useCart";
 
-export const CartContainer = () => {
+export const Cart = () => {
     const { cartItems } = useCart()
 
     return (
