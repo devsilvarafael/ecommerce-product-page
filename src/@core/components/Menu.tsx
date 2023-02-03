@@ -12,6 +12,7 @@ import { ReactComponent as Logo } from "../../../public/images/logo.svg";
 import { ReactComponent as CartIcon } from "../../../public/images/icon-cart.svg";
 import { MdMenu as HamburgerMenuIcon } from "react-icons/md";
 import { MdClose as CloseIcon } from "react-icons/md"
+import { CartContainer } from "@core/components/CartContainer";
 
 const options = [
     { id: 0, label: "Collections" },
@@ -24,8 +25,9 @@ const options = [
 
 export const Menu = () => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
+    const [cartIsOpen, setCartIsOpen] = useState(false);
 
-    const { width: screenWidth, height } = useWindowSize();
+    const { width: screenWidth } = useWindowSize();
 
     const handleMenuIsOpen = () => {
         setMenuIsOpen(!menuIsOpen)
@@ -82,7 +84,10 @@ export const Menu = () => {
                 <Logo/>
             </div>
             <div className={"flex items-center w-full justify-end"}>
-                <CartIcon className={"mr-6"}/>
+                <CartIcon className={"mr-6"} onClick={() => setCartIsOpen(!cartIsOpen)}/>
+                {cartIsOpen && (
+                    <CartContainer />
+                )}
                 <Avatar/>
             </div>
         </header>
