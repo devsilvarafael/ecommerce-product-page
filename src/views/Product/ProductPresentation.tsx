@@ -14,13 +14,12 @@ import {
 
 // Another imports
 import { productImageExtended, productImageThumbnail } from "@core/data/imagesURL";
+import useCart from "@core/hooks/useCart";
+import productsList from "@core/data/products.json"
 
 // React-icons imports
 import { BsCart3 } from "react-icons/bs";
 import useWindowSize from "@core/hooks/useWindowSize";
-
-
-
 export const ProductPresentation = () => {
     // States
     const [currentItemIndex, setCurrentItemIndex] = useState(0)
@@ -29,6 +28,8 @@ export const ProductPresentation = () => {
     // Variables
     const productImagesAmount = productImageExtended.length;
     const { width } = useWindowSize();
+    const { cartItems, addProductToCart } = useCart();
+    const { id, title, description, price, images } = productsList;
 
     // Handlers
     const handleChangeMainImage = (index: number) => {
@@ -42,14 +43,14 @@ export const ProductPresentation = () => {
         <ProductContainerWrapper>
             <div className={"md:max-w-lg mb-4"}>
                 <ProductHero
-                    url={productImageExtended[currentItemIndex]}
+                    url={images.extended[currentItemIndex]}
                     openOnScreen={handleModalIsOpen}
                     width={"md"}
                 />
 
                 {width > 375 ? (
                     <ProductThumbnails
-                        images={productImageThumbnail}
+                        images={images.thumbnail}
                         selected={currentItemIndex}
                         changeImage={handleChangeMainImage}
                         full
@@ -64,19 +65,18 @@ export const ProductPresentation = () => {
 
             <div className={"p-4"}>
                 <ProductInfo
-                    title={"Fall Limited Edition Sneakers"}
-                    description={"These low-profile sneakers are your perfect casual wear companion. " +
-                        "Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."}
+                    title={title}
+                    description={description}
                 />
 
                 <ProductPrice
-                    price={250}
+                    price={price}
                     sale={25}
                 />
 
                 <BuyProductWrapper>
                     <InputAmount/>
-                    <Button icon={<BsCart3 className={"mr-4"}/>}>
+                    <Button icon={<BsCart3 className={"mr-4"}/>} onClick={() => addProductToCart({ id, title, description, price, images })}>
                         Add to cart
                     </Button>
                 </BuyProductWrapper>
@@ -84,9 +84,9 @@ export const ProductPresentation = () => {
 
             {modalIsOpen &&
                 <Modal open={handleModalIsOpen} actions={{ currentItemIndex, setCurrentItemIndex, productImagesAmount }}>
-                    <ProductHero url={productImageExtended[currentItemIndex]} width={"lg"}/>
+                    <ProductHero url={images.extended[currentItemIndex]} width={"lg"}/>
                     <ProductThumbnails
-                        images={productImageThumbnail}
+                        images={images.thumbnail}
                         selected={currentItemIndex}
                         changeImage={handleChangeMainImage}
                     />
