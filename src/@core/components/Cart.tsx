@@ -36,7 +36,7 @@ export const Cart = ({ isOpen, openCart }: CartProps) => {
                         <p className={"text-very-dark-blue font-bold text-lg"}>Cart</p>
                     </div>
 
-                    <div className={"p-6"}>
+                    <div className={"p-4 md:p-6"}>
                         {cartItems && cartItems.map(item => (
                             <div className={"flex w-full items-center justify-between flex-row max-h-20 mb-6 text-lg"} key={item.id}>
                                 <img src={item.images.thumbnail[0]} className={"w-14 h-full rounded-md"}/>
