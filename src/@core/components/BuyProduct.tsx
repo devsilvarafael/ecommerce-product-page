@@ -5,14 +5,17 @@ import { BsCart3 } from "react-icons/bs";
 import useCart from "@core/hooks/useCart";
 import { Product } from "@core/types/Product";
 
-export const BuyProductAction = (product: Product) => {
-    const { addProductToCart } = useCart();
-    const [amount, setAmount] = useState(0)
+type BuyProduct = {
+    product: Omit<Product, "amount">
+}
+
+export const BuyProduct = ({ product }: BuyProduct) => {
+    const { addProductToCart, amount } = useCart();
 
     return (
         <div className={"flex flex-col md:flex-row w-full md:space-x-5 max-w-lg mt-8"}>
-            <InputAmount amount={amount} setAmount={setAmount} />
-            <Button icon={<BsCart3 className={"mr-4"}/>} onClick={() => addProductToCart(product)}>Add to cart</Button>
+            <InputAmount />
+            <Button icon={<BsCart3 className={"mr-4"}/>} onClick={() => addProductToCart({ ...product, amount: amount })}>Add to cart</Button>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // Components imports
 import {
-    Button, BuyProductWrapper,
+    Button, BuyProduct,
     Carousel, InputAmount, Modal,
     ProductContainerWrapper,
     ProductInfo,
@@ -13,16 +13,13 @@ import {
 } from "@core/components"
 
 // Hooks and Data imports
-import { productImageExtended, productImageThumbnail } from "@core/data/imagesURL";
-import useCart from "@core/hooks/useCart";
 import productsList from "@core/data/products.json"
 
 // React-icons imports
-import { BsCart3 } from "react-icons/bs";
-import useWindowSize from "@core/hooks/useWindowSize";
 import { ProductHeroWrapper } from "@core/components/Product/ProductHeroWrapper";
 import { ProductInfoWrapper } from "@core/components/Product/ProductInfoWrapper";
 import priceWithDiscount from "@core/utils/priceWithDiscount";
+import useWindowSize from "@core/hooks/useWindowSize";
 export const ProductPresentation = () => {
     // States
     const [currentItemIndex, setCurrentItemIndex] = useState(0)
@@ -42,7 +39,6 @@ export const ProductPresentation = () => {
     // Variables
     const productImagesAmount = product.images.extended.length;
     const { width } = useWindowSize();
-    const { addProductToCart } = useCart();
 
     // Handlers
     const handleChangeMainImage = (index: number) => {
@@ -55,23 +51,33 @@ export const ProductPresentation = () => {
     return (
         <ProductContainerWrapper>
             <ProductHeroWrapper>
-                <ProductHero url={product.images.extended[currentItemIndex]} width={"md"}/>
-                <ProductThumbnails
-                    images={product.images.thumbnail}
-                    selected={currentItemIndex}
-                    changeImage={handleChangeMainImage}
-                    full
+                <ProductHero
+                    url={product.images.extended[currentItemIndex]}
+                    openOnScreen={handleModalIsOpen}
+                    width={"md"}
                 />
+
+                {width > 375 ? (
+                    <ProductThumbnails
+                        images={product.images.thumbnail}
+                        selected={currentItemIndex}
+                        changeImage={handleChangeMainImage}
+                        full
+                    />
+                ) : (
+                    <Carousel
+                        actions={{ currentItemIndex, setCurrentItemIndex, productImagesAmount }}
+                        position={{ leftArrow: "left-4", rightArrow: "right-4" }}
+                    />
+                )}
+
             </ProductHeroWrapper>
 
             <ProductInfoWrapper>
                 <ProductInfo title={product.title} description={product.description} />
-                <ProductPrice price={product.price} sale={product.discount} />
+                <ProductPrice price={product.price} discount={product.discount} />
 
-                <BuyProductWrapper>
-                    <InputAmount />
-                    <Button icon={<BsCart3 className={"mr-4"}/>} onClick={() => addProductToCart(productWithDiscount)}>Add to cart</Button>
-                </BuyProductWrapper>
+                <BuyProduct  product={productWithDiscount}/>
             </ProductInfoWrapper>
 
             {modalIsOpen &&
