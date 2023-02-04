@@ -57,7 +57,7 @@ export const ProductPresentation = () => {
                     width={"md"}
                 />
 
-                {width > 375 ? (
+                {width > 800 ? (
                     <ProductThumbnails
                         images={product.images.thumbnail}
                         selected={currentItemIndex}
