@@ -41,7 +41,7 @@ export const Menu = () => {
             className={"fixed md:relative w-full bg-white z-40 flex items-center justify-between p-4 md:p-0 md:pb-12 md:pt-8  md:border-b-2"}>
             <div className={"flex flex-row items-center"}>
                 {screenWidth > 600 ?
-                    <menu
+                    <ul
                         className={"absolute flex flex-col gap-7 left-5 top-14 mt-8 md:flex-row md:gap-9 md:left-[13%] md:top-12 md:mt-0 md:ml-12"}>
                         {options.map(option => (
                             <li
@@ -51,7 +51,7 @@ export const Menu = () => {
                                 {option.label}
                             </li>
                         ))}
-                    </menu>
+                    </ul>
                     : menuIsOpen ?
                         <div className={"fixed w-screen h-screen bg-opacity-80 top-0 bg-black left-0 mb-px z-20"}>
                             <div className={`fixed h-full left-0 top-0 w-2/3 bg-white z-50`}>
@@ -61,7 +61,7 @@ export const Menu = () => {
                                     title={"Close menu"}
                                     onClick={handleMenuIsOpen}
                                 />
-                                <menu
+                                <ul
                                     className={"flex flex-col gap-7 left-5 md:left-[22%] top-14 absolute z-40 mt-8"} role={"menu items"}>
                                     {options.map(option => (
                                         <li
@@ -71,7 +71,7 @@ export const Menu = () => {
                                             {option.label}
                                         </li>
                                     ))}
-                                </menu>
+                                </ul>
                             </div>
                         </div>
 

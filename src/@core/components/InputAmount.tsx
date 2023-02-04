@@ -58,6 +58,8 @@ export const InputAmount = () => {
 
             <input
                 type={"number"}
+                aria-label={"Product amount"}
+                role={""}
                 className={"bg-transparent m-0 p-0 font-bold text-center max-w-[40px]"}
                 value={amount}
                 readOnly={true}
