@@ -12,7 +12,7 @@ import {
     ProductThumbnails
 } from "@core/components"
 
-// Another imports
+// Hooks and Data imports
 import { productImageExtended, productImageThumbnail } from "@core/data/imagesURL";
 import useCart from "@core/hooks/useCart";
 import productsList from "@core/data/products.json"
@@ -20,16 +20,29 @@ import productsList from "@core/data/products.json"
 // React-icons imports
 import { BsCart3 } from "react-icons/bs";
 import useWindowSize from "@core/hooks/useWindowSize";
+import { ProductHeroWrapper } from "@core/components/Product/ProductHeroWrapper";
+import { ProductInfoWrapper } from "@core/components/Product/ProductInfoWrapper";
+import priceWithDiscount from "@core/utils/priceWithDiscount";
 export const ProductPresentation = () => {
     // States
     const [currentItemIndex, setCurrentItemIndex] = useState(0)
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
+    // Product for testing.
+    const product = {
+        ...productsList,
+        discount: 59
+    }
+
+    const productWithDiscount = {
+        ...product,
+        price: priceWithDiscount(product.price, product.discount)
+    }
+
     // Variables
-    const productImagesAmount = productImageExtended.length;
+    const productImagesAmount = product.images.extended.length;
     const { width } = useWindowSize();
-    const { cartItems, addProductToCart } = useCart();
-    const { id, title, description, price, images } = productsList;
+    const { addProductToCart } = useCart();
 
     // Handlers
     const handleChangeMainImage = (index: number) => {
@@ -41,52 +54,31 @@ export const ProductPresentation = () => {
 
     return (
         <ProductContainerWrapper>
-            <div className={"md:max-w-lg mb-4 mt-6 md:mt-0"}>
-                <ProductHero
-                    url={images.extended[currentItemIndex]}
-                    openOnScreen={handleModalIsOpen}
-                    width={"md"}
+            <ProductHeroWrapper>
+                <ProductHero url={product.images.extended[currentItemIndex]} width={"md"}/>
+                <ProductThumbnails
+                    images={product.images.thumbnail}
+                    selected={currentItemIndex}
+                    changeImage={handleChangeMainImage}
+                    full
                 />
+            </ProductHeroWrapper>
 
-                {width > 375 ? (
-                    <ProductThumbnails
-                        images={images.thumbnail}
-                        selected={currentItemIndex}
-                        changeImage={handleChangeMainImage}
-                        full
-                    />
-                ) : (
-                    <Carousel
-                        actions={{ currentItemIndex, setCurrentItemIndex, productImagesAmount }}
-                        position={{ leftArrow: "left-4", rightArrow: "right-4" }}
-                    />
-                )}
-            </div>
-
-            <div className={"p-4"}>
-                <ProductInfo
-                    title={title}
-                    description={description}
-                />
-
-                <ProductPrice
-                    price={price}
-                    sale={25}
-                />
+            <ProductInfoWrapper>
+                <ProductInfo title={product.title} description={product.description} />
+                <ProductPrice price={product.price} sale={product.discount} />
 
                 <BuyProductWrapper>
-                    <InputAmount/>
-                    <Button icon={<BsCart3 className={"mr-4"}/>} onClick={() => addProductToCart({ id, title, description, price, images })}>
-                        Add to cart
-                    </Button>
+                    <InputAmount />
+                    <Button icon={<BsCart3 className={"mr-4"}/>} onClick={() => addProductToCart(productWithDiscount)}>Add to cart</Button>
                 </BuyProductWrapper>
-            </div>
+            </ProductInfoWrapper>
 
             {modalIsOpen &&
                 <Modal open={handleModalIsOpen} actions={{ currentItemIndex, setCurrentItemIndex, productImagesAmount }}>
-                    <ProductHero url={images.extended[currentItemIndex]} width={"lg"}/>
+                    <ProductHero url={product.images.extended[currentItemIndex]} width={"lg"}/>
                     <ProductThumbnails
-                        images={images.thumbnail}
+                        images={product.images.thumbnail}
                         selected={currentItemIndex}
                         changeImage={handleChangeMainImage}
                     />

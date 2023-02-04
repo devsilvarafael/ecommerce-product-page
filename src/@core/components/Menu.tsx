@@ -9,7 +9,6 @@ import useWindowSize from "@core/hooks/useWindowSize";
 
 // Icons imports
 import { ReactComponent as Logo } from "../../../public/images/logo.svg";
-import { ReactComponent as CartIcon } from "../../../public/images/icon-cart.svg";
 import { MdMenu as HamburgerMenuIcon } from "react-icons/md";
 import { MdClose as CloseIcon } from "react-icons/md"
 import { Cart } from "@core/components/Cart";
@@ -31,6 +30,10 @@ export const Menu = () => {
 
     const handleMenuIsOpen = () => {
         setMenuIsOpen(!menuIsOpen)
+    }
+
+    const handleCartIsOpen = () => {
+        setCartIsOpen(!cartIsOpen)
     }
 
     return (
@@ -84,10 +87,7 @@ export const Menu = () => {
                 <Logo/>
             </div>
             <div className={"flex items-center w-full justify-end"}>
-                <CartIcon className={"mr-6 cursor-pointer"} onClick={() => setCartIsOpen(!cartIsOpen)}/>
-                {cartIsOpen && (
-                    <Cart />
-                )}
+                <Cart isOpen={cartIsOpen} openCart={handleCartIsOpen}/>
                 <Avatar/>
             </div>
         </header>

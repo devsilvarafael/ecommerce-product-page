@@ -1,13 +1,11 @@
+import priceWithDiscount from "@core/utils/priceWithDiscount";
+
 type ProductPrice = {
     price: number;
     sale?: number;
 }
 
 export const ProductPrice = ({ price, sale }: ProductPrice) => {
-    const priceWithDiscount = (price: number, sale: number) => {
-        return price - (price * (sale / 100))
-    }
-
     const discountedValue = sale && priceWithDiscount(price, sale);
 
     return (
