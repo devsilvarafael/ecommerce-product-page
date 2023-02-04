@@ -1,5 +1,6 @@
 import { FaMinus as MinusIcon, FaPlus as PlusIcon } from "react-icons/fa"
-import { useReducer } from "react";
+import { Dispatch, SetStateAction, useEffect, useReducer } from "react";
+import useCart from "@core/hooks/useCart";
 
 enum InputTypes {
     INCREASE = "INCREASE",
@@ -14,6 +15,11 @@ type ProductAmount = {
     amount: number;
 }
 
+type SendAmount = {
+    amount: number;
+    setAmount: Dispatch<SetStateAction<number>>
+}
+
 function amountReducer (state: ProductAmount, action: InputAction) {
     const { type } = action
     if(type === InputTypes.INCREASE) {
@@ -23,9 +29,9 @@ function amountReducer (state: ProductAmount, action: InputAction) {
     }
 
     if(type === InputTypes.DECREASE) {
-        if (state.amount === 0) {
+        if (state.amount === 1) {
             return {
-                amount: 0
+                amount: 1
             }
         }
         return {
@@ -34,12 +40,17 @@ function amountReducer (state: ProductAmount, action: InputAction) {
     }
 
     return {
-        amount: 0
+        amount: 1
     }
 }
 
 export const InputAmount = () => {
-    const [state, dispatch] = useReducer(amountReducer, { amount: 0 })
+    const [state, dispatch] = useReducer(amountReducer, { amount: 1 })
+    const { amount, setAmount } = useCart();
+
+    useEffect(() => {
+        setAmount(state.amount)
+    }, [state.amount])
 
     return (
         <div className={"flex flex-row bg-light-grayish-blue h-14 items-center rounded-xl w-full md:w-3/5 justify-around shadow-md"}>
@@ -48,7 +59,7 @@ export const InputAmount = () => {
             <input
                 type={"number"}
                 className={"bg-transparent m-0 p-0 font-bold text-center max-w-[40px]"}
-                value={state.amount}
+                value={amount}
                 readOnly={true}
                 min={0}
             />
