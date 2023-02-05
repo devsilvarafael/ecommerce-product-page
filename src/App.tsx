@@ -5,8 +5,10 @@ import { ProductContextWrapper } from "@core/contexts/ProductContext";
 function App() {
     return (
         <ProductContextWrapper>
-            <Menu />
-            <ProductPresentation />
+            <div className={"md:w-[80%] md:mx-auto"}>
+                <Menu />
+                <ProductPresentation />
+            </div>
         </ProductContextWrapper>
     )
 }

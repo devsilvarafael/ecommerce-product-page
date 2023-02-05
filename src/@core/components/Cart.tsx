@@ -21,7 +21,7 @@ export const Cart = ({ isOpen, openCart }: CartProps) => {
             <div>
                 {cartItems.length > 0 && (
                     <span
-                        className={"absolute ml-2 -mt-2 md:-mt-0 md:top-10 md:mt-px bg-orange text-white w-6 h-4 flex justify-center items-center rounded-full text-[13px] font-bold"}
+                        className={"absolute ml-2 -mt-2 md:-mt-0 md:top-10 md:mt-px bg-orange text-white w-6 h-4 flex justify-center items-center rounded-full text-sm font-bold"}
                     >
                         {cartItems.map(product => { return product.amount })}
                      </span>
@@ -31,7 +31,7 @@ export const Cart = ({ isOpen, openCart }: CartProps) => {
             </div>
             {isOpen && (
                 <div
-                    className={"absolute top-20 md:top-28 w-[95%] left-2 md:left-2/3 md:w-96 rounded-xl shadow-2xl bg-white z-10"}>
+                    className={"absolute top-20 md:top-28 w-[95%] left-2 md:left-[67%] md:w-96 rounded-xl shadow-2xl bg-white z-10"}>
                     <div className={"p-6 border-b-2"}>
                         <p className={"text-very-dark-blue font-bold text-lg"}>Cart</p>
                     </div>

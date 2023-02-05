@@ -3,21 +3,19 @@ import { useState } from "react";
 
 // Components imports
 import {
-    Button, BuyProduct,
-    Carousel, InputAmount, Modal,
+    BuyProduct,
+    Carousel, Modal,
     ProductContainerWrapper,
     ProductInfo,
     ProductHero,
     ProductPrice,
-    ProductThumbnails
+    ProductThumbnails,
+    ProductHeroWrapper,
+    ProductInfoWrapper
 } from "@core/components"
 
-// Hooks and Data imports
+// Hooks, Utils and Data imports
 import productsList from "@core/data/products.json"
-
-// React-icons imports
-import { ProductHeroWrapper } from "@core/components/Product/ProductHeroWrapper";
-import { ProductInfoWrapper } from "@core/components/Product/ProductInfoWrapper";
 import priceWithDiscount from "@core/utils/priceWithDiscount";
 import useWindowSize from "@core/hooks/useWindowSize";
 export const ProductPresentation = () => {
