@@ -59,11 +59,13 @@ export const InputAmount = () => {
             <input
                 type={"number"}
                 aria-label={"Product amount"}
-                role={""}
                 className={"bg-transparent m-0 p-0 font-bold text-center max-w-[40px]"}
+                aria-valuemax={100}
+                aria-valuemin={1}
+                aria-valuenow={amount}
                 value={amount}
                 readOnly={true}
-                min={0}
+                min={1}
             />
 
             <PlusIcon  className={"text-orange cursor-pointer"} onClick={() => dispatch({ type: InputTypes.INCREASE })}/>
