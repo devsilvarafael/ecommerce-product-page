@@ -5,7 +5,7 @@ import { ProductContextWrapper } from "@core/contexts/ProductContext";
 function App() {
     return (
         <ProductContextWrapper>
-            <div className={"md:w-[60%] md:mx-auto"}>
+            <div className={"md:w-[80%] md:mx-auto"}>
                 <Menu />
                 <ProductPresentation />
             </div>
