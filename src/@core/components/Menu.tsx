@@ -38,7 +38,7 @@ export const Menu = () => {
 
     return (
         <header
-            className={"fixed md:relative w-full bg-white z-40 flex items-center justify-between p-4 md:p-0 md:pb-12 md:pt-8  md:border-b-2"}>
+            className={"fixed md:relative w-full bg-white z-40 flex items-center justify-between p-4 md:p-0 md:pb-8 md:pt-8  md:border-b-2"}>
             <div className={"flex flex-row items-center"}>
                 {screenWidth > 600 ?
                     <ul

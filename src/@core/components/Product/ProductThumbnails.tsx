@@ -7,7 +7,7 @@ type ProductSubImageProps = {
 
 export const ProductThumbnails = ({ images, selected, changeImage, full }: ProductSubImageProps) => {
     return (
-        <div className={`flex flex-row justify-between mt-10 ${full ? "px-0": "px-16"}`}>
+        <div className={`flex flex-row justify-between mt-5 ${full ? "px-0": "px-16"}`}>
             {images.map((thumbnail, index) => (
                 <figure
                     className={`
@@ -18,7 +18,7 @@ export const ProductThumbnails = ({ images, selected, changeImage, full }: Produ
                     <img
                         src={thumbnail}
                         alt={"product image"}
-                        className={`${selected === index && "opacity-50"} rounded-xl w-24 cursor-pointer hover:opacity-50`}
+                        className={`${selected === index && "opacity-50"} rounded-xl w-[5.5rem] cursor-pointer hover:opacity-50`}
                         onClick={() => changeImage(index)}
                     />
                 </figure>

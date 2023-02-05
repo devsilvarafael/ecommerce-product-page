@@ -7,10 +7,10 @@ type ProductInfoProps = {
 
 export const ProductInfo = ({ title, description }: ProductInfoProps) => {
     return (
-        <section>
-            <p className={"uppercase text-sm text-orange font-extrabold tracking-widest"}>Sneaker Company</p>
-            <h1 className={"text-3xl md:text-5xl font-bold mt-4 mb-4 md:mb-12 max-w-xl"}>{title}</h1>
-            <p className={"mb-8 text-dark-grayish-blue max-w-lg"}>
+        <section className={"mt-10"}>
+            <p className={"uppercase text-sm text-orange font-extrabold tracking-widest mb-4"}>Sneaker Company</p>
+            <h1 className={"text-3xl md:text-[43px] tracking-wide leading-tight font-extrabold max-w-xl mb-7"}>{title}</h1>
+            <p className={"text-dark-grayish-blue tracking-wide max-w-lg mb-7"}>
                 {description}
             </p>
         </section>
