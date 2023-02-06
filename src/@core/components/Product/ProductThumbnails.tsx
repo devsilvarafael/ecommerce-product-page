@@ -7,7 +7,7 @@ type ProductSubImageProps = {
 
 export const ProductThumbnails = ({ images, selected, changeImage, full }: ProductSubImageProps) => {
     return (
-        <div className={`flex flex-row justify-between mt-5 ${full ? "px-0": "px-16"}`}>
+        <div className={`flex flex-row justify-between mt-10 ${full ? "px-0": "px-16"}`}>
             {images.map((thumbnail, index) => (
                 <figure
                     className={`

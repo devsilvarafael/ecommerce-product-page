@@ -46,7 +46,7 @@ export const Menu = () => {
                         {options.map(option => (
                             <li
                                 key={option.id}
-                                className={"cursor-pointer md:text-md md:font-normal md:text-dark-grayish-blue md:hover:border-orange md:hover:border-b-4 md:h-[5.5rem]"}
+                                className={"cursor-pointer md:text-md md:font-normal md:text-dark-grayish-blue md:hover:border-orange md:hover:border-b-4 md:h-[4.6 rem]"}
                             >
                                 {option.label}
                             </li>
